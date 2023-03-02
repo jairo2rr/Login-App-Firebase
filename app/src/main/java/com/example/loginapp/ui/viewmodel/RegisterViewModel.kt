@@ -19,9 +19,6 @@ class RegisterViewModel @Inject constructor(
     private val _registerState = MutableLiveData<Resource<Boolean>>()
     val registerState:LiveData<Resource<Boolean>> = _registerState
 
-    private val _loading = MutableLiveData<Boolean>()
-    val loading:LiveData<Boolean> = _loading
-
     fun register(email:String,password:String){
         viewModelScope.launch {
             registerUseCase(email, password).onEach { state ->
